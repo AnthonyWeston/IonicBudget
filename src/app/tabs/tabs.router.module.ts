@@ -8,42 +8,42 @@ const routes: Routes = [
     component: TabsPage,
     children: [
       {
-        path: 'tab1',
+        path: 'budget-summary',
         children: [
           {
             path: '',
-            loadChildren: '../tab1/tab1.module#Tab1PageModule'
+            loadChildren: '../budget-summary/budget-summary.module#BudgetSummaryPageModule'
           }
         ]
       },
       {
-        path: 'tab2',
+        path: 'income',
         children: [
           {
             path: '',
-            loadChildren: '../tab2/tab2.module#Tab2PageModule'
+            loadChildren: '../income/income.module#IncomePageModule'
           }
         ]
       },
       {
-        path: 'tab3',
+        path: 'expenses',
         children: [
           {
             path: '',
-            loadChildren: '../tab3/tab3.module#Tab3PageModule'
+            loadChildren: '../expenses/expenses.module#ExpensesPageModule'
           }
         ]
       },
       {
         path: '',
-        redirectTo: '/tabs/tab1',
+        redirectTo: 'tabs/budget-summary',
         pathMatch: 'full'
       }
     ]
   },
   {
     path: '',
-    redirectTo: '/tabs/tab1',
+    redirectTo: 'tabs/budget-summary',
     pathMatch: 'full'
   }
 ];
