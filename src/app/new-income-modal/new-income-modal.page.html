@@ -1,0 +1,21 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Add New Income</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item>
+    <ion-label position="floating">Source of Income</ion-label>
+    <ion-input [(ngModel)]="income.source" placeholder="Source" type="text"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating">Amount</ion-label>
+    <ion-input [(ngModel)]="income.amount" placeholder="Amount" type="number" inputmode="numeric"></ion-input>
+  </ion-item>
+</ion-content>
+
+<ion-footer>
+  <ion-button color="primary" (click)="addIncome()" [disabled]="addButtonDisabled()">Add</ion-button>
+  <ion-button color="secondary" (click)="close()">Cancel</ion-button>
+</ion-footer>

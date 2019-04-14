@@ -5,13 +5,12 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { IonicModule } from '@ionic/angular';
 
-import { IncomePage } from './income.page';
-import { IncomeListComponent } from '../income-list/income-list.component';
+import { NewIncomeModalPage } from './new-income-modal.page';
 
 const routes: Routes = [
   {
     path: '',
-    component: IncomePage
+    component: NewIncomeModalPage
   }
 ];
 
@@ -22,6 +21,6 @@ const routes: Routes = [
     IonicModule,
     RouterModule.forChild(routes)
   ],
-  declarations: [IncomePage, IncomeListComponent]
+  declarations: [NewIncomeModalPage]
 })
-export class IncomePageModule {}
+export class NewIncomeModalPageModule {}
