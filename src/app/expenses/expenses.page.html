@@ -5,5 +5,13 @@
 </ion-header>
 
 <ion-content>
+  <h3>Monthly Expenses: {{ getTotalExpenses() | currency }}</h3>
 
+  <app-expense-list [expenses]="expenses"></app-expense-list>
 </ion-content>
+  
+<ion-fab vertical="bottom" horizontal="end">
+  <ion-fab-button (click)="openNewExpenseDialog()">
+    <ion-icon name="add"></ion-icon>
+  </ion-fab-button>
+</ion-fab>

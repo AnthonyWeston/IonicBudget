@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Income } from '../interfaces/income';
+import { BudgetItem } from '../interfaces/budget-item';
 import { IncomeService } from '../services/income.service';
 import { NewIncomeModalPage } from '../new-income-modal/new-income-modal.page';
 import { ModalController } from '@ionic/angular';
@@ -11,7 +11,7 @@ import { ModalController } from '@ionic/angular';
   styleUrls: ['./income.page.scss'],
 })
 export class IncomePage implements OnInit {
-  incomes: Income[];
+  incomes: BudgetItem[];
 
   constructor(private incomeService: IncomeService, public modalController: ModalController) { }
 

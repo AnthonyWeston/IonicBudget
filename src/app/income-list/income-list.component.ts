@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { Income } from '../interfaces/income';
+import { BudgetItem } from '../interfaces/budget-item';
 
 
 @Component({
@@ -8,7 +8,7 @@ import { Income } from '../interfaces/income';
   styleUrls: ['./income-list.component.scss'],
 })
 export class IncomeListComponent {
-  @Input() incomeList: Income[];
+  @Input() incomeList: BudgetItem[];
 
   constructor() { }
 

@@ -1,25 +1,25 @@
 import { Injectable } from '@angular/core';
-import { Income } from '../interfaces/income';
+import { BudgetItem } from '../interfaces/budget-item';
 import { from, Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class IncomeService {
-  incomes: Income[] =
+  incomes: BudgetItem[] =
     [
-      {source: 'Freelancing', amount: 2000.00},
-      {source: 'Babysitting', amount: 250.00},
-      {source: 'Selling crafts on Etsy', amount: 250.00}
+      {name: 'Freelancing', amount: 2000.00},
+      {name: 'Babysitting', amount: 250.00},
+      {name: 'Selling crafts on Etsy', amount: 250.00}
     ];
 
   constructor() { }
 
-  getIncomes(): Observable<Income> {
+  getIncomes(): Observable<BudgetItem> {
     return from(this.incomes);
   }
 
-  addNewIncome(newIncome: Income): void {
+  addNewIncome(newIncome: BudgetItem): void {
     this.incomes.push(newIncome);
   }
 }
