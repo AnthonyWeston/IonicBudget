@@ -5,9 +5,14 @@
 </ion-header>
 
 <ion-content>
-  <h3>Monthly Income: {{ getTotalIncome() | currency }}</h3>
-
-  <app-income-list [incomeList]="incomes"></app-income-list>
+  <ion-card>
+    <ion-card-header>
+      <h4>Monthly Income: {{ getTotalIncome() | currency }}</h4>
+    </ion-card-header>
+    <ion-card-content>
+      <app-income-list [incomeList]="incomes"></app-income-list>
+    </ion-card-content>
+  </ion-card>
 </ion-content>
 
 <ion-fab vertical="bottom" horizontal="end">

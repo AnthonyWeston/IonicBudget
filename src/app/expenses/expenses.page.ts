@@ -30,4 +30,14 @@ export class ExpensesPage implements OnInit {
   openNewExpenseDialog() : void {
     console.log('new expense');
   }
+
+
+  async openNewIncomeDialog() {
+    const newIncomeModal = await this.modalController.create({ component: NewIncomeModalPage });
+    await newIncomeModal.present();
+
+    const { data } = await newIncomeModal.onDidDismiss();
+    this.incomeService.addNewIncome(data);
+    this.getIncomes();
+  }
 }
