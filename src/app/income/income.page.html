@@ -5,7 +5,7 @@
 </ion-header>
 
 <ion-content>
-  <h3>Your Monthly Income</h3>
+  <h3>Monthly Income: {{ getTotalIncome() | currency }}</h3>
 
   <app-income-list [incomeList]="incomes"></app-income-list>
 </ion-content>

@@ -27,6 +27,10 @@ export class IncomePage implements OnInit {
     );
   }
 
+  getTotalIncome() : number {
+    return this.incomes.reduce((sum, income) => sum + income.amount, 0);
+  }
+
   async openNewIncomeDialog() {
     const newIncomeModal = await this.modalController.create({ component: NewIncomeModalPage });
     await newIncomeModal.present();
@@ -34,7 +38,6 @@ export class IncomePage implements OnInit {
     const { data } = await newIncomeModal.onDidDismiss();
     this.incomeService.addNewIncome(data);
     this.getIncomes();
-
   }
 
 }
