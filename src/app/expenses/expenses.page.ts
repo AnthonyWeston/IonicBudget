@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ExpenseCategory } from '../interfaces/expense-category';
 import { ExpenseService } from '../services/expense.service';
+import { NewExpenseModalPage } from '../new-expense-modal/new-expense-modal.page';
+import { ModalController } from '@ionic/angular';
 
 @Component({
   selector: 'app-expenses',
@@ -10,7 +12,7 @@ import { ExpenseService } from '../services/expense.service';
 export class ExpensesPage implements OnInit {
   expenses: ExpenseCategory[]
 
-  constructor(private expenseService: ExpenseService) { }
+  constructor(private expenseService: ExpenseService, private modalController: ModalController) { }
 
   ngOnInit() {
     this.expenses = [];
@@ -27,17 +29,12 @@ export class ExpensesPage implements OnInit {
       .reduce((sum, expenseSubtotal) => sum + expenseSubtotal);
   }
 
-  openNewExpenseDialog() : void {
-    console.log('new expense');
-  }
+  async openNewExpenseDialog() {
+    const newExpenseModal = await this.modalController.create({ component: NewExpenseModalPage });
+    await newExpenseModal.present();
 
-
-  async openNewIncomeDialog() {
-    const newIncomeModal = await this.modalController.create({ component: NewIncomeModalPage });
-    await newIncomeModal.present();
-
-    const { data } = await newIncomeModal.onDidDismiss();
-    this.incomeService.addNewIncome(data);
-    this.getIncomes();
+    const { data } = await newExpenseModal.onDidDismiss();
+    this.expenseService.addNewExpense(data);
+    this.getExpenses();
   }
 }

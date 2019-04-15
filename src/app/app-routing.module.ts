@@ -6,7 +6,8 @@ const routes: Routes = [
   { path: 'budget-summary', loadChildren: './budget-summary/budget-summary.module#BudgetSummaryPageModule' },
   { path: 'expenses', loadChildren: './expenses/expenses.module#ExpensesPageModule' },
   { path: 'income', loadChildren: './income/income.module#IncomePageModule' },
-  { path: 'new-income-modal', loadChildren: './new-income-modal/new-income-modal.module#NewIncomeModalPageModule' }
+  { path: 'new-income-modal', loadChildren: './new-income-modal/new-income-modal.module#NewIncomeModalPageModule' },
+  { path: 'new-expense-modal', loadChildren: './new-expense-modal/new-expense-modal.module#NewExpenseModalPageModule' }
 ];
 @NgModule({
   imports: [
