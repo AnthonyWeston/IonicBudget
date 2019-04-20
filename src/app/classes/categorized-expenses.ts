@@ -22,7 +22,6 @@ export class CategorizedExpenses {
     }
 
     addExpenses(categorizedExpenses: any): void {
-        console.log(categorizedExpenses);
         Object.keys(categorizedExpenses).forEach(category =>
             {
                 if (!this.expenses[category]) {
