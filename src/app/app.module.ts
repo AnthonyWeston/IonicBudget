@@ -13,14 +13,17 @@ import { NewIncomeModalPage } from './new-income-modal/new-income-modal.page';
 import { FormsModule } from '@angular/forms';
 
 import { ChartsModule } from 'ng2-charts';
+import { NewExpenseModalPage } from './new-expense-modal/new-expense-modal.page';
 
 @NgModule({
   declarations: [
     AppComponent,
     NewIncomeModalPage,
+    NewExpenseModalPage,
   ],
   entryComponents: [
     NewIncomeModalPage,
+    NewExpenseModalPage,
   ],
   imports: [
     BrowserModule,

@@ -16,7 +16,6 @@ export class IncomePage implements OnInit {
 
   ngOnInit() {
     this.getIncomes();
-    this.generateChart();
   }
 
   getIncomes(): void {
@@ -46,9 +45,5 @@ export class IncomePage implements OnInit {
     const { data } = await newIncomeModal.onDidDismiss();
     this.incomeService.addNewIncome(data);
     this.getIncomes();
-  }
-
-  generateChart(): void {
-    
   }
 }

@@ -22,15 +22,12 @@ export class CategorizedExpenses {
     }
 
     addExpenses(categorizedExpenses: any): void {
-        Object.keys(categorizedExpenses).forEach(category =>
-            {
-                if (!this.expenses[category]) {
-                    this.expenses[category] = [];
-                }
-                this.expenses[category] = this.expenses[category].concat(categorizedExpenses[category]);
-            });
-        console.log(this.expenses);
-        console.log('');
+        Object.keys(categorizedExpenses).forEach(category => {
+            if (!this.expenses[category]) {
+                this.expenses[category] = [];
+            }
+            this.expenses[category] = this.expenses[category].concat(categorizedExpenses[category]);
+        });
     }
 
     getTotal(): number {

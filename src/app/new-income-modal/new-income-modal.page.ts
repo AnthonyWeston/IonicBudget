@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { ViewController } from '@ionic/core';
 import { ModalController } from '@ionic/angular';
 import { BudgetItem } from '../interfaces/budget-item';
 

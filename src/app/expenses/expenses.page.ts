@@ -15,6 +15,10 @@ export class ExpensesPage implements OnInit {
   constructor(private expenseService: ExpenseService, private modalController: ModalController) { }
 
   ngOnInit() {
+    this.getExpenses();
+  }
+
+  getExpenses(): void {
     this.expenses = new CategorizedExpenses();
     this.expenseService.getExpenses().subscribe(
       categorizedExpense => this.expenses.addExpenses(categorizedExpense));
@@ -38,5 +42,6 @@ export class ExpensesPage implements OnInit {
 
     const { data } = await newExpenseModal.onDidDismiss();
     this.expenseService.addExpenses(data);
+    this.getExpenses();
   }
 }
