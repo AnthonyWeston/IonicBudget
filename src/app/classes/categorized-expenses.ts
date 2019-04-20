@@ -34,6 +34,14 @@ export class CategorizedExpenses {
     }
 
     getTotal(): number {
-        return this.getExpenseItems().reduce((sum: number, expense: BudgetItem) => sum += expense.amount, 0);
+        return this.sum(this.getExpenseItems());
+    }
+
+    getTotalByCategory(category: string): number {
+        return this.sum(this.getExpenseItemsByCategory(category))
+    }
+
+    private sum(expenseItems: BudgetItem[]): number {
+        return expenseItems.reduce((sum: number, expense: BudgetItem) => sum += expense.amount, 0)
     }
 }

@@ -9,7 +9,19 @@
     <ion-card-header>
       <h4> Monthly Expenses: {{ getTotalExpenses() | currency }} </h4>
     </ion-card-header>
-    
+
+    <ion-card-content>
+        <div style="display: block">
+            <canvas baseChart
+              [data]="getAmounts()"
+              [labels]="getLabels()"
+              [chartType]="'doughnut'"></canvas>
+          </div>
+    </ion-card-content>
+  </ion-card>
+  
+  <ion-card>
+    <ion-card-header><h4> Expenses </h4></ion-card-header>
     <ion-card-content>
         <app-expense-list [expenses]="expenses"></app-expense-list>
     </ion-card-content>

@@ -24,6 +24,14 @@ export class ExpensesPage implements OnInit {
     return this.expenses.getTotal();
   }
 
+  getLabels(): string[] {
+    return this.expenses.getCategories();
+  }
+
+  getAmounts(): number[] {
+    return this.getLabels().map(label => this.expenses.getTotalByCategory(label));
+  }
+
   async openNewExpenseDialog() {
     const newExpenseModal = await this.modalController.create({ component: NewExpenseModalPage });
     await newExpenseModal.present();

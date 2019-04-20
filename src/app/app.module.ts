@@ -12,6 +12,7 @@ import { AppComponent } from './app.component';
 import { NewIncomeModalPage } from './new-income-modal/new-income-modal.page';
 import { FormsModule } from '@angular/forms';
 
+import { ChartsModule } from 'ng2-charts';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,13 @@ import { FormsModule } from '@angular/forms';
   entryComponents: [
     NewIncomeModalPage,
   ],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, FormsModule],
+  imports: [
+    BrowserModule,
+    IonicModule.forRoot(),
+    AppRoutingModule,
+    FormsModule,
+    ChartsModule,
+  ],
   providers: [
     StatusBar,
     SplashScreen,

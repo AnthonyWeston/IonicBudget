@@ -4,7 +4,6 @@ import { IncomeService } from '../services/income.service';
 import { NewIncomeModalPage } from '../new-income-modal/new-income-modal.page';
 import { ModalController } from '@ionic/angular';
 
-
 @Component({
   selector: 'app-income',
   templateUrl: './income.page.html',
@@ -17,6 +16,7 @@ export class IncomePage implements OnInit {
 
   ngOnInit() {
     this.getIncomes();
+    this.generateChart();
   }
 
   getIncomes(): void {
@@ -27,8 +27,16 @@ export class IncomePage implements OnInit {
     );
   }
 
-  getTotalIncome() : number {
+  getTotalIncome(): number {
     return this.incomes.reduce((sum, income) => sum + income.amount, 0);
+  }
+
+  getLabels(): string[] {
+    return this.incomes.map(incomeItem => incomeItem.name);
+  }
+
+  getAmounts(): number[] {
+    return this.incomes.map(incomeItem => incomeItem.amount);
   }
 
   async openNewIncomeDialog() {
@@ -40,4 +48,7 @@ export class IncomePage implements OnInit {
     this.getIncomes();
   }
 
+  generateChart(): void {
+    
+  }
 }

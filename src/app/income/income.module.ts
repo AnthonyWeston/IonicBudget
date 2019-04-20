@@ -8,6 +8,8 @@ import { IonicModule } from '@ionic/angular';
 import { IncomePage } from './income.page';
 import { IncomeListComponent } from '../income-list/income-list.component';
 
+import { ChartsModule } from 'ng2-charts';
+
 const routes: Routes = [
   {
     path: '',
@@ -20,7 +22,8 @@ const routes: Routes = [
     CommonModule,
     FormsModule,
     IonicModule,
-    RouterModule.forChild(routes)
+    RouterModule.forChild(routes),
+    ChartsModule,
   ],
   declarations: [IncomePage, IncomeListComponent]
 })
