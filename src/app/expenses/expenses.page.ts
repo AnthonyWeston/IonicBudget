@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ExpenseCategory } from '../interfaces/expense-category';
+import { CategorizedExpenses } from '../classes/categorized-expenses';
 import { ExpenseService } from '../services/expense.service';
 import { NewExpenseModalPage } from '../new-expense-modal/new-expense-modal.page';
 import { ModalController } from '@ionic/angular';
@@ -10,23 +10,18 @@ import { ModalController } from '@ionic/angular';
   styleUrls: ['./expenses.page.scss'],
 })
 export class ExpensesPage implements OnInit {
-  expenses: ExpenseCategory[]
+  expenses: CategorizedExpenses;
 
   constructor(private expenseService: ExpenseService, private modalController: ModalController) { }
 
   ngOnInit() {
-    this.expenses = [];
+    this.expenses = new CategorizedExpenses();
     this.expenseService.getExpenses().subscribe(
-      expense => this.expenses.push(expense),
-      error => console.error(error)
-    );
+      categorizedExpense => this.expenses.addExpenses(categorizedExpense));
   }
 
-  getTotalExpenses() : number {
-    return this.expenses.map(expenseCategory => 
-      expenseCategory.expenses.map(expense => expense.amount)
-        .reduce((sum, expense) => sum + expense))
-      .reduce((sum, expenseSubtotal) => sum + expenseSubtotal);
+  getTotalExpenses(): number {
+    return this.expenses.getTotal();
   }
 
   async openNewExpenseDialog() {
@@ -34,7 +29,6 @@ export class ExpensesPage implements OnInit {
     await newExpenseModal.present();
 
     const { data } = await newExpenseModal.onDidDismiss();
-    this.expenseService.addNewExpense(data);
-    this.getExpenses();
+    this.expenseService.addExpenses(data);
   }
 }

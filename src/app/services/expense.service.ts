@@ -1,33 +1,33 @@
 import { Injectable } from '@angular/core';
-import { ExpenseCategory } from '../interfaces/expense-category';
+import { CategorizedExpenseData } from '../interfaces/categorized-expense-data';
 import { Observable, from } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ExpenseService {
-  expenses: ExpenseCategory[] = [
+  expenses: CategorizedExpenseData[] = [
     {
-      category: 'Rent & Utilities',
-      expenses: [{ name: 'Rent', amount: 500 }, { name: 'Utilities', amount: 125 }]
+      'Rent & Utilities': [{ name: 'Rent', amount: 500 }, { name: 'Utilities', amount: 125 }]
     },
     {
-      category: 'Groceries & Food',
-      expenses: [{ name: 'Groceries', amount: 250 }, { name: 'Eating out', amount: 50 }]
+      'Groceries & Food': [{ name: 'Groceries', amount: 250 }, { name: 'Eating out', amount: 50 }]
     },
     {
-      category: 'Medical',
-      expenses: [{ name: 'Counseling', amount: 100 }]
+      'Medical': [{ name: 'Counseling', amount: 100 }]
     },
     {
-      category: 'Pet Supplies',
-      expenses: [{ name: 'Cat litter', amount: 25 }, { name: 'Cat food', amount: 25 }]
+      'Pet Supplies': [{ name: 'Cat litter', amount: 25 }, { name: 'Cat food', amount: 25 }]
     },
   ]
 
   constructor() { }
 
-  getExpenses(): Observable<ExpenseCategory> {
+  getExpenses(): Observable<any> {
     return from(this.expenses);
+  }
+
+  addExpenses(expense: CategorizedExpenseData): void {
+    this.expenses.push(expense);
   }
 }

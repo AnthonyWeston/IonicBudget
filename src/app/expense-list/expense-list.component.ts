@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { ExpenseCategory } from '../interfaces/expense-category';
+import { CategorizedExpenses } from '../classes/categorized-expenses';
 
 @Component({
   selector: 'app-expense-list',
@@ -7,7 +7,7 @@ import { ExpenseCategory } from '../interfaces/expense-category';
   styleUrls: ['./expense-list.component.scss'],
 })
 export class ExpenseListComponent implements OnInit {
-  @Input() expenses: ExpenseCategory[];
+  @Input() expenses: CategorizedExpenses;
 
   constructor() { }
 

@@ -1,10 +1,10 @@
 <ion-list>
-  <ion-item-group *ngFor="let expenseCategory of expenses">
+  <ion-item-group *ngFor="let category of expenses.getCategories()">
     <ion-item-divider>
-      <ion-label color="primary"> {{ expenseCategory.category }}</ion-label>
+      <ion-label color="primary"> {{ category }}</ion-label>
     </ion-item-divider>
     
-    <ion-item *ngFor="let expense of expenseCategory.expenses">
+    <ion-item *ngFor="let expense of expenses.getExpenseItemsByCategory(category)">
       {{expense.name}}: {{expense.amount | currency}}
     </ion-item>
   </ion-item-group>
