@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { ExpenseService } from '../services/expense.service';
 import { IncomeService } from '../services/income.service';
 
@@ -7,7 +7,7 @@ import { IncomeService } from '../services/income.service';
   templateUrl: './budget-summary.page.html',
   styleUrls: ['./budget-summary.page.scss'],
 })
-export class BudgetSummaryPage implements OnInit {
+export class BudgetSummaryPage {
   labels: string[] = [];
   amounts: number[] = [];
   totalIncome: number;
@@ -29,7 +29,7 @@ export class BudgetSummaryPage implements OnInit {
 
   constructor(private expenseService: ExpenseService, private incomeService: IncomeService) { }
 
-  ngOnInit() {
+  ionViewWillEnter() {
     this.getIncomesAndExpenses()
   }
 
