@@ -19,6 +19,10 @@ export class IncomeService {
     return from(this.incomes);
   }
 
+  getTotalIncome(): Observable<number> {
+    return from([this.incomes.reduce((sum, income) => sum + income.amount, 0)]);
+  }
+
   addNewIncome(newIncome: BudgetItem): void {
     this.incomes.push(newIncome);
   }

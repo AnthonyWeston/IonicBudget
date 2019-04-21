@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { CategorizedExpenseData } from '../interfaces/categorized-expense-data';
 import { Observable, from } from 'rxjs';
+import { BudgetItem } from '../interfaces/budget-item';
 
 @Injectable({
   providedIn: 'root'
@@ -29,5 +30,13 @@ export class ExpenseService {
 
   addExpenses(expense: CategorizedExpenseData): void {
     this.expenses.push(expense);
+  }
+
+  getTotalExpenses(): Observable<number> {
+    return from([this.expenses
+      .map(expenseCategory => Object.values(expenseCategory))
+      .reduce((allExpenses: BudgetItem[], expenses: BudgetItem[][]) => allExpenses.concat(expenses[0]), [])
+      .reduce((sum: number, expense: BudgetItem) => sum += expense.amount, 0)
+    ]);
   }
 }

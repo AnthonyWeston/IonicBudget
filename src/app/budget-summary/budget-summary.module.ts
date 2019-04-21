@@ -7,6 +7,9 @@ import { IonicModule } from '@ionic/angular';
 
 import { BudgetSummaryPage } from './budget-summary.page';
 
+import { ChartsModule } from 'ng2-charts';
+
+
 const routes: Routes = [
   {
     path: '',
@@ -19,7 +22,8 @@ const routes: Routes = [
     CommonModule,
     FormsModule,
     IonicModule,
-    RouterModule.forChild(routes)
+    RouterModule.forChild(routes),
+    ChartsModule,
   ],
   declarations: [BudgetSummaryPage]
 })
